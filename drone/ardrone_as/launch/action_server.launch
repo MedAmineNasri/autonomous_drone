@@ -1,0 +1,5 @@
+<launch>
+    <node name="ardrone_as" pkg="ardrone_as" type="test_action_server.py" output="screen">
+        
+    </node>
+</launch>

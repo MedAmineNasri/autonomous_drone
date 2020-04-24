@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find sjtu_drone)/launch/simple.launch">
+    <arg name="world_name" value="$(find drone_nasri)/worlds/my_mesh.world"/>
+  </include>
+</launch>

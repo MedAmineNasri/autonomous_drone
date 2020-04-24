@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="world_name" value="$(find drone_nasri)/worlds/my_mesh3.world"/>
+  </include>
+
+
+
+  <param name ="robot_description" textfile="$(find sjtu_drone)/models/sjtu_drone/sjtu_drone.urdf"/>
+  
+  <!-- Spawn sim ulated quadrotor uav -->
+  <node name="spawn_model" pkg="sjtu_drone" type="spawn_model" respawn="false"  />
+
+  <node pkg="tele_op" type="dynamic_tf_broadcaster.py" name="broadcaster" />
+  <node pkg="tele_op" type="dynamic_tf_broadcaster1.py" name="broadcaster1" />
+  <node pkg="tele_op" type="pc_right.py" name="pc_right" />
+  <node pkg="tele_op" type="pc_left.py" name="pc_left" /> 
+  <node pkg="tele_op" type="pc_back.py" name="pc_back" />
+  <node pkg="tele_op" type="pc_front.py" name="pc_front" />
+
+</launch>
+
+
